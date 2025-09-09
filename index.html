@@ -1,42 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="#" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的遊戲</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            width: 100%;
-            height: 100%;
-        }
-        canvas {
-            display: block;
-        }
-    </style>
+    <title>Match3 Game</title>
 </head>
 <body>
-    <!-- 遊戲畫面的容器 -->
-    <div id="game-container"></div>
-
-    <!-- 載入 Pixi.js -->
-    <script src="https://pixijs.download/v7.2.4/pixi.min.js"></script>
-    <!-- 載入你的遊戲程式碼 -->
-    <script type="module" src="src/scripts/game/Game.js"></script>
-    <script type="module">
-        // 初始化遊戲
-        const app = new PIXI.Application({
-            width: window.innerWidth,
-            height: window.innerHeight,
-            backgroundColor: 0x1099bb
-        });
-        document.getElementById('game-container').appendChild(app.view);
-
-        // 創建遊戲實例
-        const game = new Game();
-        app.stage.addChild(game.container);
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
