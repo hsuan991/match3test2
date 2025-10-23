@@ -5,8 +5,105 @@
     <link rel="shortcut icon" href="#" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Match3 Game</title>
+
+    <style>
+        html, body {
+          margin: 0;
+          padding: 0;
+          width: 100vw;
+          height: 100vh;
+          overflow: hidden;
+        }
+
+        #game-guide-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(250, 250, 250, 0.97);
+        z-index: 9999;
+        overflow-y: auto;
+        font-family: "Arial", sans-serif;
+        padding: 20px;
+      }
+
+      .guide-content {
+        max-width: 800px;
+        margin: 0 auto;
+        background: #fff;
+        border: 4px solid #ccc;
+        border-radius: 20px;
+        padding: 30px;
+        font-size: 24px;
+        color: #333;
+        line-height: 1.8;
+      }
+
+      .guide-content h1 {
+        font-size: 36px;
+        color: #d25c5c;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .guide-content h2 {
+        font-size: 30px;
+        color: #4a90e2;
+        margin-top: 25px;
+      }
+
+      .guide-content button {
+        display: block;
+        margin: 40px auto 0;
+        padding: 15px 30px;
+        font-size: 28px;
+        border: none;
+        border-radius: 12px;
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .guide-content button:hover {
+        background-color: #45a049;
+      }
+
+        canvas {
+          display: block;
+          max-width: 100%;
+          max-height: 100%;
+        }
+
+
+    </style>
 </head>
 <body>
-    <script src="main.js"></script>
+<!-- 📘 遊戲玩法說明視窗 -->
+<div id="game-guide-overlay">
+  <div class="guide-content">
+    <h1>🎮 遊戲玩法說明</h1>
+
+    <h2>🎯 遊戲目標</h2>
+    <p>透過交換寶石，讓三個以上相同顏色的寶石連成一線即可消除並獲得分數。<br>達成指定的寶石消除目標數量就能成功過關！</p>
+
+    <h2>🧠 資安問答</h2>
+    <p>當你消除帶有「🔒鎖頭圖示」的寶石時，會觸發資安小問答：<br>✅ 答對可獲得 <strong>額外步數</strong> 與 <strong>加分獎勵</strong>！<br>💡 多多消除鎖頭寶石，有助於提高總分與學習資安知識喔！</p>
+
+    <h2>👣 遊戲進行方式</h2>
+    <p>每一關都有 <strong>步數限制</strong>，請善用每一步！<br>若在步數內完成所有目標，則闖關成功。<br><strong>偷偷告訴你：</strong> 若步數用完，可以透過回答資安問題獲得額外步數喔！</p>
+
+    <h2>🏆 關卡結束</h2>
+    <p>成功過關後，系統會顯示您的總得分與資安稱號，快來看看您是資安達人還是小尖兵吧！</p>
+
+    <h2>📱 貼心提醒</h2>
+    <p>本遊戲採用大字體與簡潔畫面，是為您設計的銀髮友善型遊戲。<br>若畫面太小，建議橫放手機或改用平板、電腦操作以獲得最佳體驗。</p>
+
+    <button onclick="startGame()">我知道了，開始遊戲</button>
+  </div>
+</div>
+<script src="main.js"></script>
+
 </body>
 </html>
