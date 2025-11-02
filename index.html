@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="#" />
-    <meta name="viewport"
-    content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Match3 Game</title>
 
     <style>
@@ -12,13 +11,13 @@
           margin: 0;
           padding: 0;
           width: 100vw;
-          height: 100vh;
+          height: 100dvh;
           overflow: hidden;
         }
 
         #game-container {
           position: fixed; inset: 0;
-          width: 100vw; height: 100vh;
+          width: 100vw; height: 100dvh;
           overflow: hidden;
           background: #1099bb; /* 與 PIXI 背景一致，避免邊緣閃白 */
           touch-action: none;  /* 行動裝置觸控穩定 */
@@ -81,8 +80,6 @@
 
         canvas {
           display: block;
-          max-width: 100%;
-          max-height: 100%;
         }
 
         html, body { overscroll-behavior: none; }   /* 避免手機上下滑回彈 */
