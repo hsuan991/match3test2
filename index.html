@@ -11,16 +11,19 @@
           margin: 0;
           padding: 0;
           width: 100vw;
-          height: 100dvh;
+          height: 100svh;          /* 首選動態視窗高 */
+          height: 100dvh;          /* 後備：部分瀏覽器 */
           overflow: hidden;
+          overscroll-behavior: none;
         }
 
         #game-container {
           position: fixed; inset: 0;
-          width: 100vw; height: 100dvh;
+          width: 100vw; height: 100svh;
+          height: 100dvh;          /* 後備 */
           overflow: hidden;
-          background: #1099bb; /* 與 PIXI 背景一致，避免邊緣閃白 */
-          touch-action: none;  /* 行動裝置觸控穩定 */
+          background: #1099bb;
+          touch-action: none;
         }
 
         #game-guide-overlay {
