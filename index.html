@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="#" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Match3 Game</title>
 
     <style>
@@ -13,6 +14,14 @@
           width: 100vw;
           height: 100vh;
           overflow: hidden;
+        }
+
+        #game-container {
+          position: fixed; inset: 0;
+          width: 100vw; height: 100vh;
+          overflow: hidden;
+          background: #1099bb; /* 與 PIXI 背景一致，避免邊緣閃白 */
+          touch-action: none;  /* 行動裝置觸控穩定 */
         }
 
         #game-guide-overlay {
@@ -76,11 +85,16 @@
           max-height: 100%;
         }
 
+        html, body { overscroll-behavior: none; }   /* 避免手機上下滑回彈 */
+        #game-container { padding: env(safe-area-inset-top) env(safe-area-inset-right)
+                           env(safe-area-inset-bottom) env(safe-area-inset-left); }
+
 
     </style>
 </head>
 <body>
 <!-- 關卡結束視窗 -->
+<div id="game-container"></div>
 <div id="game-complete-overlay" style="
     display: none;
     position: fixed;
