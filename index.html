@@ -85,7 +85,29 @@
           display: block;
         }
 
+      /* 外層覆蓋層：自己可以直向捲動 */
+      #game-complete-overlay {
+        overflow-y: auto;                /* ✅ 讓覆蓋層可捲 */
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;    /* 防止整頁回彈 */
+      }
 
+      /* 內層面板：高度不要超過視窗，超過就出捲軸 */
+      .game-complete-panel {
+        max-width: 520px;
+        margin: 24px auto;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        background: #fff;
+        color: #000;
+
+        /* ✅ 這兩行是關鍵：限制高度、允許內捲 */
+        max-height: min(90svh, 90dvh);   /* 兼容各瀏覽器的視窗高單位 */
+        overflow: auto;
+
+        /* 內距舒服一些 */
+        padding: 24px;
+      }
 
     </style>
 </head>
@@ -103,15 +125,10 @@
     color: #fff;
     padding-top: 80px;
 ">
-  <div style="
-      background: white;
-      color: black;
-      margin: auto;
-      padding: 30px;
-      border-radius: 20px;
-      max-width: 400px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  ">
+  <div class="game-complete-panel">
+
+  
+
     <h2 style="font-size: 32px; color: green;">🎉 恭喜通關！
       資安守護三要領：警覺・防範・查證，做自己的資安守護者！</h2>
     <p style="font-size: 28px;">您總共獲得 <span id="final-score" style="font-weight: bold;">0</span> 分</p>
