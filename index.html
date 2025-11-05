@@ -84,17 +84,18 @@
         canvas {
           display: block;
         }
-        
-        /* 覆蓋層鋪滿全畫面，內容置於最上緣、水平置中 */
+
+      /* 一定在最上層，且貼齊最上緣 */
         #game-complete-overlay {
           position: fixed;
           inset: 0;
+          z-index: 10000;                   /* ✅ 比 guide(9999) 更高 */
           display: flex;
-          align-items: flex-start;         /* ⬅️ 貼齊最上緣 */
-          justify-content: center;         /* 水平置中 */
-          padding-top: max(16px, env(safe-area-inset-top)); /* 保留安全區 */
+          align-items: flex-start;           /* ✅ 貼齊最上緣 */
+          justify-content: center;
+          padding-top: max(16px, env(safe-area-inset-top));  /* 上方安全區 */
           background: rgba(0,0,0,0.6);
-          overflow-y: auto;                /* 內容過長可捲 */
+          overflow-y: auto;                  /* 內容過長可捲 */
           -webkit-overflow-scrolling: touch;
         }
 
@@ -117,17 +118,7 @@
 <body>
 <!-- 關卡結束視窗 -->
 <div id="game-container"></div>
-<div id="game-complete-overlay" style="
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    font-size: 24px;
-    text-align: center;
-    color: #fff;
-    padding-top: 80px;
-">
+<div id="game-complete-overlay" style="display:none;">
   <div class="game-complete-panel">
     <h2 style="font-size: 32px; color: green;">🎉 恭喜通關！
       資安守護三要領：警覺・防範・查證，做自己的資安守護者！</h2>
